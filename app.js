@@ -1,0 +1,10 @@
+const express=require("express")
+const app=express()
+const bodyparser=require("body-parser")
+const route=require("./routes/user")
+const port=process.env.PORT||3000
+app.use(bodyparser.json())
+app.use(bodyparser.urlencoded({extended:true}))
+app.use("/",route)
+app.listen(port)
+console.log("server running on port no"+port)
